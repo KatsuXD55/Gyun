@@ -10,10 +10,10 @@ RUN apt-get update && \
 
 COPY package.json .
 
-RUN npm install
+RUN npm install && npm install pm2
 
 COPY . .
 
 EXPOSE 5000
 
-CMD ["npm", "start"]
+CMD ["pm2 start haruka.js && pm2 save && pm2 logs"]
