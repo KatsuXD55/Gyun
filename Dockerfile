@@ -10,10 +10,10 @@ RUN apt-get update && \
 
 COPY package.json .
 
-RUN npm install && npm install qrcode-terminal
+RUN npm install
 
 COPY . .
 
 EXPOSE 5000
 
-CMD ["pm2 start haruka.js && pm2 save && pm2 logs"]
+CMD ["npm", "start"]
